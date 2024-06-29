@@ -30,11 +30,22 @@ public interface ShieldCooldownSettings {
 
     /**
      * Returns the shield disable cooldown, such as when attacked by an axe.
+     * Not used. Use ShieldUtils#getDisableCooldown without the parameter.
      *
-     * @param shieldStack the stack for the shield
+     * @param shieldStack the stack for the shield (Doesn't work, can't work)
      * @return the number of ticks to disable the shield
      */
+    @Deprecated
     default int getDisableCooldown(ItemStack shieldStack) {
+        return 100;
+    }
+
+    /**
+     * Returns the shield disable cooldown, such as when attacked by an axe.
+     *
+     * @return the number of ticks to disable the shield
+     */
+    default int getDisableCooldown() {
         return 100;
     }
 

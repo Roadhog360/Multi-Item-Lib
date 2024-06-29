@@ -43,11 +43,12 @@ public final class ShieldUtil {
      */
     public static void addShieldCooldown(ItemCooldownManager cooldownManager, int duration, Operation<Void> original, ItemStack shield) {
         for (Item registryEntry : UniqueItemRegistry.SHIELD.getValues()) {
-            int disableTime = duration;
+            int disableTime;
             if (registryEntry instanceof ShieldCooldownSettings) {
-                disableTime = ((ShieldCooldownSettings) registryEntry).getDisableCooldown(shield);
+                disableTime = ((ShieldCooldownSettings) registryEntry).getDisableCooldown();
+            } else {
+                disableTime = duration;
             }
-
             original.call(cooldownManager, registryEntry, disableTime);
         }
     }

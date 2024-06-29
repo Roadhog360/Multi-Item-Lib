@@ -45,7 +45,7 @@ public class LivingEntityMixin {
 
     @WrapOperation(method = "tickFallFlying", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;isOf(Lnet/minecraft/item/Item;)Z"))
     private boolean handleElytra(ItemStack instance, Item item, Operation<Boolean> original) {
-        return UniqueItemRegistry.ELYTRA.isItemInRegistry(instance.getItem());
+        return UniqueItemRegistry.ELYTRA.isItemInRegistry(instance.getItem()) || original.call(instance, item);
     }
 
     @ModifyConstant(method = "isBlocking", constant = @Constant(intValue = 5))
