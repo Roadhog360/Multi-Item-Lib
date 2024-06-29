@@ -1,3 +1,8 @@
+Version 1.6.4
+
+- Fixed some minor API mistakes with the previous release
+
+----
 Version 1.6.3
 
 - Tweaked mixins to be more compatible.
